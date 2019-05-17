@@ -2,6 +2,9 @@
 #include <tello_driver/tello_packet_builder.h>
 #include <tello_driver/tables.h>
 
+// Headers in ROS
+#include <ros/ros.h>
+
 namespace tello_driver
 {
     TelloPacketBuilder::TelloPacketBuilder()
@@ -19,6 +22,7 @@ namespace tello_driver
         using namespace tello_driver::byte_format;
         std::vector<tello_driver::BYTE1> data = {0x00};
         std::vector<tello_driver::BYTE1> ret = build(packet_type::land,command_id::land,0,data);
+        ROS_ASSERT(ret.size() == 11);
         return ret;
     }
 

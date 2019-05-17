@@ -3,7 +3,6 @@
 
 // Headers in this package
 #include <tello_driver/constants.h>
-#include <tello_driver/tables.h>
 
 // Headers in STL
 #include <vector>
