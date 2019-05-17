@@ -5,7 +5,7 @@
 
 namespace tello_driver
 {
-    const std::string TELLO_IP = "192.168.0.1";
+    const std::string TELLO_IP = "192.168.10.1";
     constexpr int TELLO_PORT_CMD = 8889;
     constexpr int TELLO_PORT_VIDEO = 6038;
     typedef unsigned char BYTE1;
