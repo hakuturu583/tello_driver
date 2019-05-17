@@ -6,9 +6,35 @@
 
 // Headers in STL
 #include <vector>
+#include <iostream>
+#include <sstream>
 
 namespace tello_driver
 {
+    std::ostream& operator<<(std::ostream& stream, const std::vector<tello_driver::BYTE1>& value)
+    {
+        stream << "\ntello_packet\n";
+        int count = 0;
+        for(auto itr = value.begin(); itr != value.end(); itr++)
+        {
+            int val = *itr;
+            if(val <= 15)
+            {
+                std::stringstream ss;
+                ss << std::hex << val;
+                stream << count << ":0x0" << ss.str() << "\n";
+            }
+            else
+            {
+                std::stringstream ss;
+                ss << std::hex << val;
+                stream << count << ":0x" << ss.str() << "\n";
+            }
+            count++;
+        }
+        return stream;
+    }
+
     class TelloPacketBuilder
     {
     public:

@@ -23,6 +23,7 @@ namespace tello_driver
         std::vector<tello_driver::BYTE1> data = {0x00};
         std::vector<tello_driver::BYTE1> ret = build(packet_type::land,command_id::land,0,data);
         ROS_ASSERT(ret.size() == 11);
+        ROS_ERROR_STREAM(ret);
         return ret;
     }
 
