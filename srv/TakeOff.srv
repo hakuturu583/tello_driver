@@ -1,5 +1,0 @@
----------------
-int8 result
-int8 OK=0
-int8 ERROR=1
-int8 TIMEOUT=2

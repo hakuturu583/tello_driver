@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<robot name="tello">
+  <link name="base_link"/>
+
+  <joint name="front_camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="front_camera"/>
+    <origin xyz="0.05 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+
+  <link name="front_camera">
+  </link>
+
+  <joint name="front_camera_optical_joint" type="fixed">
+    <parent link="front_camera"/>
+    <child  link="front_camera_optical"/>
+    <origin xyz="0.0 0.0 0.0" rpy="-1.57079632679 0.0 -1.57079632679"/>
+  </joint>
+  
+  <link name="front_camera_optical">
+  </link>
+</robot>

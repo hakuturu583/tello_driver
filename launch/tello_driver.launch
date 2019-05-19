@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <node pkg="tello_driver" type="tello_driver_node" name="tello_driver_node" output="screen" respawn="false" respawn_delay="0" />
+
+    <param name="robot_description" textfile="$(find tello_driver)/urdf/tello.urdf"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
 </launch>

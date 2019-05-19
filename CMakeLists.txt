@@ -11,22 +11,14 @@ find_package(catkin REQUIRED COMPONENTS
   joy
   roscpp
   sensor_msgs
+  std_msgs
   message_generation
-)
-
-add_service_files(
-  FILES
-  TakeOff.srv
-)
-
-generate_messages(
-  DEPENDENCIES
 )
 
 catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES tello_driver
-  CATKIN_DEPENDS cv_bridge geometry_msgs image_transport joy roscpp sensor_msgs
+  CATKIN_DEPENDS cv_bridge geometry_msgs image_transport joy roscpp sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
 
