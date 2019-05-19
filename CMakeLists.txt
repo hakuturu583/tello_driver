@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   joy
   roscpp
   sensor_msgs
+  geometry_msgs
+  uav_msgs
 )
 
 catkin_package(
@@ -25,7 +27,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-set(tello_driver_core_src src/tello_command_builder.cpp src/udp_client.cpp)
+set(tello_driver_core_src src/tello_command_builder.cpp src/udp_client.cpp src/udp_server.cpp)
 
 add_executable(tello_takeoff app/tello_takeoff.cpp ${tello_driver_core_src})
 target_link_libraries(tello_takeoff  ${catkin_LIBRARIES})
