@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="tello_driver" type="tello_driver_node" name="tello_driver_node" output="screen" respawn="false" respawn_delay="0" />
+</launch>
