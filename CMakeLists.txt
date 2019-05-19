@@ -36,5 +36,5 @@ target_link_libraries(tello_command_builder ${catkin_LIBRARIES})
 
 #add_executable(tello_launch exe/tello_launch.cpp src/udp_client.cpp src/tello_packet_builder.cpp)
 #target_link_libraries(tello_launch ${catkin_LIBRARIES})
-add_executable(tello_launch exe/tello_launch.cpp)
-target_link_libraries(tello_launch udp_client tello_packet_builder tello_command_builder ${catkin_LIBRARIES})
+add_executable(tello_takeoff exe/tello_takeoff.cpp)
+target_link_libraries(tello_takeoff udp_client tello_packet_builder tello_command_builder ${catkin_LIBRARIES})
