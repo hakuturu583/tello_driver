@@ -6,6 +6,8 @@
 #include <std_msgs/Empty.h>
 #include <geometry_msgs/PointStamped.h>
 #include <dynamic_reconfigure/server.h>
+#include <tf2_ros/transform_listener.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
 // Heades in this package
 #include <tello_driver/tello_command_builder.h>
@@ -28,8 +30,8 @@ namespace tello_driver
         UdpServer res_server_;
         ros::Subscriber takeoff_sub_;
         void takeOffCallback(const std_msgs::Empty::ConstPtr msg);
-        ros::Subscriber move_sub_;
-        void moveCallback(const geometry_msgs::PointStamped::ConstPtr msg);
+        ros::Subscriber target_position_sub_;
+        void targetPositionCallback(const geometry_msgs::PointStamped::ConstPtr msg);
         dynamic_reconfigure::Server<tello_driver::TelloConfig> param_server_;
         dynamic_reconfigure::Server<tello_driver::TelloConfig>::CallbackType param_func_;
         void configCallback(tello_driver::TelloConfig &config, uint32_t level);
@@ -38,6 +40,8 @@ namespace tello_driver
          * 
          */
         double target_speed_;
+        tf2_ros::Buffer tf_buffer_;
+        tf2_ros::TransformListener tf_listener_;
     };
 }
 

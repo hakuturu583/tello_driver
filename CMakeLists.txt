@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   dynamic_reconfigure
   tf2_ros
+  tf2_geometry_msgs
 )
 
 generate_dynamic_reconfigure_options(
