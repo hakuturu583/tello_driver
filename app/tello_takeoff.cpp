@@ -7,7 +7,7 @@ int main()
     tello_driver::TelloCommandBuilder builder;
     client.send(tello_driver::TELLO_IP,tello_driver::TELLO_PORT_CMD,builder.buildInitCommand());
     client.send(tello_driver::TELLO_IP,tello_driver::TELLO_PORT_CMD,builder.buildTakeOffCommand());
-    //tello_driver::TelloPacketBuilder builder;
-    //client.send(tello_driver::TELLO_IP,tello_driver::TELLO_PORT_CMD,builder.buildLandOffCmd());
+    //sleep(3);
+    //client.send(tello_driver::TELLO_IP,tello_driver::TELLO_PORT_CMD,builder.buildLandCommand());
     return 0;
 }

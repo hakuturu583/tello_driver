@@ -25,11 +25,10 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_library(udp_client src/udp_client.cpp)
-target_link_libraries(udp_client ${catkin_LIBRARIES})
+set(tello_driver_core_src src/tello_command_builder.cpp src/udp_client.cpp)
 
-add_library(tello_command_builder src/tello_command_builder.cpp)
-target_link_libraries(tello_command_builder ${catkin_LIBRARIES})
+add_executable(tello_takeoff app/tello_takeoff.cpp ${tello_driver_core_src})
+target_link_libraries(tello_takeoff  ${catkin_LIBRARIES})
 
-add_executable(tello_takeoff exe/tello_takeoff.cpp)
-target_link_libraries(tello_takeoff udp_client tello_command_builder ${catkin_LIBRARIES})
+add_executable(tello_move_forward app/tello_move_forward.cpp ${tello_driver_core_src})
+target_link_libraries(tello_move_forward  ${catkin_LIBRARIES})

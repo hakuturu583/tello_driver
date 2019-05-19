@@ -48,6 +48,10 @@ namespace tello_driver
 
         enum move_commands
         {
+            /**
+             * @brief move up
+             * 
+             */
             UP = 0,
             /**
              * @brief move down
