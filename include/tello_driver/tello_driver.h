@@ -8,6 +8,7 @@
 #include <tello_driver/TakeOff.h>
 #include <tello_driver/tello_command_builder.h>
 #include <tello_driver/udp_client.h>
+#include <tello_driver/udp_server.h>
 
 namespace tello_driver
 {
@@ -21,7 +22,8 @@ namespace tello_driver
         const ros::NodeHandle nh_;
         const ros::NodeHandle pnh_;
         TelloCommandBuilder builder_;
-        UdpClient client_;
+        UdpClient cmd_client_;
+        UdpServer res_server_;
     };
 }
 

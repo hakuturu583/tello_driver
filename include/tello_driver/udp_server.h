@@ -9,6 +9,7 @@
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
 #include <boost/circular_buffer.hpp>
+#include <boost/optional.hpp>
 
 // Headers in ROS
 #include <ros/ros.h>
@@ -16,6 +17,7 @@
 // Headers in STL
 #include <map>
 #include <mutex>
+#include <functional>
 
 namespace tello_driver
 {
