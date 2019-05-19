@@ -11,8 +11,16 @@ find_package(catkin REQUIRED COMPONENTS
   joy
   roscpp
   sensor_msgs
-  geometry_msgs
-  uav_msgs
+  message_generation
+)
+
+add_service_files(
+  FILES
+  TakeOff.srv
+)
+
+generate_messages(
+  DEPENDENCIES
 )
 
 catkin_package(
@@ -37,3 +45,4 @@ target_link_libraries(tello_move_forward  ${catkin_LIBRARIES})
 
 add_executable(tello_driver_node src/tello_driver_node.cpp src/tello_driver.cpp ${tello_driver_core_src})
 target_link_libraries(tello_driver_node ${catkin_LIBRARIES})
+add_dependencies(tello_driver_node tello_driver_generate_messages_cpp)

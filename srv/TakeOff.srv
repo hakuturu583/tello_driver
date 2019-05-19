@@ -1,0 +1,4 @@
+---------------
+bool result
+bool OK=True
+bool ERROR=False

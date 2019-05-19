@@ -8,6 +8,14 @@
 #include <boost/array.hpp>
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
+#include <boost/circular_buffer.hpp>
+
+// Headers in ROS
+#include <ros/ros.h>
+
+// Headers in STL
+#include <map>
+#include <mutex>
 
 namespace tello_driver
 {
@@ -16,12 +24,15 @@ namespace tello_driver
     public:
         UdpServer(int port);
         ~UdpServer();
+        boost::circular_buffer<std::pair<ros::Time,std::string> > getMessageQueue();
     private:
         boost::asio::io_service io_service_;
         boost::asio::ip::udp::socket socket_;
         boost::asio::ip::udp::endpoint remote_endpoint_;
         void receive(const boost::system::error_code&, std::size_t len);
         boost::array<char, 512> recieve_buf_;
+        boost::circular_buffer<std::pair<ros::Time,std::string> > message_queue_;
+        std::mutex mtx_;
     };
 }
 
