@@ -18,6 +18,7 @@ namespace tello_driver
         std::string buildTakeOffCommand();
         std::string buildLandCommand();
         std::string buildMoveCommand(int command_type,int data);
+        std::string buildMoveCommand(int command_type,int data0,int data1,int data2,int data3);
     private:
     };
 }

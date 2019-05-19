@@ -32,6 +32,18 @@ namespace tello_driver
         return ret;
     }
 
+    std::string buildMoveCommand(int command_type,int data0,int data1,int data2,int data3)
+    {
+        using namespace tello_driver::tello_commands;
+        if(command_type == move_commands::GO)
+        {
+            std::string ret = u8"go " + std::to_string(data0) 
+                + u8" " + std::to_string(data1) + u8" " + std::to_string(data2)
+                + u8" " + std::to_string(data3);
+            return ret;
+        } 
+    }
+
     std::string TelloCommandBuilder::buildMoveCommand(int command_type,int data)
     {
         using namespace tello_driver::tello_commands;

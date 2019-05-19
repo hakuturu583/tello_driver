@@ -14,10 +14,11 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   message_generation
   dynamic_reconfigure
+  tf2_ros
 )
 
 generate_dynamic_reconfigure_options(
-  cfg/TelloConfig.cfg
+  cfg/Tello.cfg
 )
 
 catkin_package(
@@ -42,4 +43,4 @@ target_link_libraries(tello_move_forward  ${catkin_LIBRARIES})
 
 add_executable(tello_driver_node src/tello_driver_node.cpp src/tello_driver.cpp ${tello_driver_core_src})
 target_link_libraries(tello_driver_node ${catkin_LIBRARIES})
-add_dependencies(tello_driver_node tello_driver_generate_messages_cpp tello_driver_gencfg)
+add_dependencies(tello_driver_node tello_driver_gencfg)
