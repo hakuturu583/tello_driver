@@ -6,6 +6,8 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
 
     <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" output="log" respawn="false" respawn_delay="0">
-        
+    </node>
+
+    <node pkg="rviz" type="rviz" name="rviz" output="log" respawn="false" respawn_delay="0" args="-d $(find tello_driver)/config/tello.rviz">
     </node>
 </launch>
