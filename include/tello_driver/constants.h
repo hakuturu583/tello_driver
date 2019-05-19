@@ -152,45 +152,6 @@ namespace tello_driver
             WIFI_SNR = 3,
         };
     }
-
-    /**
-     * @brief typedef for the 1 Byte
-     * 
-     */
-    typedef unsigned char BYTE1;
-    /**
-     * @brief typedef for the 2 Bytes
-     * 
-     */
-    typedef unsigned short BYTE2;
-
-    union BYTE
-    {
-        BYTE2 byte2;
-        struct
-        {
-            BYTE1 first_byte;
-            BYTE1 second_byte;
-        };
-    };
-
-    namespace byte_format
-    {
-        constexpr BYTE1 FIRST_BYTE = 0xcc;
-        namespace packet_type
-        {
-            constexpr BYTE1 takeoff = 0x68;
-            constexpr BYTE1 land = 0x68;
-            constexpr BYTE1 stick = 0x60;
-        }
-
-        namespace command_id
-        {
-            constexpr BYTE1 takeoff = 0x54;
-            constexpr BYTE1 land = 0x55;
-            constexpr BYTE1 stick = 0x50;
-        }
-    }
 }
 
 #endif  //TELLO_DRIVER_CONSTANTS_H_INCLUDED
