@@ -17,7 +17,6 @@
 // Headers in STL
 #include <map>
 #include <mutex>
-#include <functional>
 
 namespace tello_driver
 {

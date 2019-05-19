@@ -10,6 +10,7 @@ namespace tello_driver
     constexpr int TELLO_PORT_STATE = 8890;
     constexpr int TELLO_PORT_VIDEO = 6038;
     constexpr int MESSAGE_QUEUE_LENGTH = 10;
+    constexpr float TIMEOUT = 3.0;
 
     namespace tello_commands
     {
