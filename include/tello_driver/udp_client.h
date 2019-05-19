@@ -19,6 +19,7 @@ namespace tello_driver
     public:
         UdpClient();
         ~UdpClient();
+        void send(std::string address,int port,std::string data);
         void send(std::string address,int port,std::vector<tello_driver::BYTE1> data);
     private:
         boost::asio::io_service io_service_;

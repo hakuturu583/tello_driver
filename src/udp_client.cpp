@@ -14,6 +14,23 @@ namespace tello_driver
 
     }
 
+    void UdpClient::send(std::string address,int port,std::string data)
+    {
+        try
+        {
+            using boost::asio::ip::udp;
+            udp::resolver::query query(udp::v4(), address, std::to_string(port));
+            udp::endpoint receiver_endpoint = *resolver_.resolve(query);
+            udp::socket socket(io_service_);
+            socket.open(udp::v4());
+            socket.send_to(boost::asio::buffer(data), receiver_endpoint);
+        }
+        catch(const std::exception& e)
+        {
+            ROS_ERROR_STREAM(e.what());
+        }
+    }
+
     void UdpClient::send(std::string address,int port,std::vector<tello_driver::BYTE1> data)
     {
         try
