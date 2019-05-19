@@ -8,12 +8,19 @@
 #include <dynamic_reconfigure/server.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <image_transport/image_transport.h>
+#include <cv_bridge/cv_bridge.h>
+#include <sensor_msgs/image_encodings.h>
+#include <opencv2/imgproc/imgproc.hpp>
 
 // Heades in this package
 #include <tello_driver/tello_command_builder.h>
 #include <tello_driver/udp_client.h>
 #include <tello_driver/udp_server.h>
 #include <tello_driver/TelloConfig.h>
+
+// Headers in OpenCV
+#include <opencv2/opencv.hpp>
 
 namespace tello_driver
 {
@@ -42,6 +49,26 @@ namespace tello_driver
         double target_speed_;
         tf2_ros::Buffer tf_buffer_;
         tf2_ros::TransformListener tf_listener_;
+        /**
+         * @brief Class for captureing video
+         * 
+         */
+        cv::VideoCapture capture_;
+        /**
+         * @brief Loop function for captureing video
+         * 
+         */
+        void captureVideo();
+        /**
+         * @brief image_transport
+         * 
+         */
+        image_transport::ImageTransport it_;
+        /**
+         * @brief image publisher
+         * 
+         */
+        image_transport::Publisher image_pub_;
     };
 }
 
