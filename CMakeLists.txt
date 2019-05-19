@@ -34,3 +34,6 @@ target_link_libraries(tello_takeoff  ${catkin_LIBRARIES})
 
 add_executable(tello_move_forward app/tello_move_forward.cpp ${tello_driver_core_src})
 target_link_libraries(tello_move_forward  ${catkin_LIBRARIES})
+
+add_executable(tello_driver_node src/tello_driver_node.cpp src/tello_driver.cpp ${tello_driver_core_src})
+target_link_libraries(tello_driver_node ${catkin_LIBRARIES})
