@@ -13,12 +13,17 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
   message_generation
+  dynamic_reconfigure
+)
+
+generate_dynamic_reconfigure_options(
+  cfg/TelloConfig.cfg
 )
 
 catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES tello_driver
-  CATKIN_DEPENDS cv_bridge geometry_msgs image_transport joy roscpp sensor_msgs std_msgs
+  CATKIN_DEPENDS cv_bridge geometry_msgs image_transport joy roscpp sensor_msgs std_msgs dynamic_reconfigure
 #  DEPENDS system_lib
 )
 
@@ -37,4 +42,4 @@ target_link_libraries(tello_move_forward  ${catkin_LIBRARIES})
 
 add_executable(tello_driver_node src/tello_driver_node.cpp src/tello_driver.cpp ${tello_driver_core_src})
 target_link_libraries(tello_driver_node ${catkin_LIBRARIES})
-add_dependencies(tello_driver_node tello_driver_generate_messages_cpp)
+add_dependencies(tello_driver_node tello_driver_generate_messages_cpp tello_driver_gencfg)
