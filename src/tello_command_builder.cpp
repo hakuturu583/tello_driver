@@ -44,6 +44,17 @@ namespace tello_driver
         } 
     }
 
+    std::string TelloCommandBuilder::buildRemoteControlCommand(int left,int forward,int up,int yaw)
+    {
+        ROS_ASSERT(std::fabs(left)<=100);
+        ROS_ASSERT(std::fabs(forward)<=100);
+        ROS_ASSERT(std::fabs(up)<=100);
+        ROS_ASSERT(std::fabs(yaw)<=100);
+        std::string ret = u8"rc " + std::to_string(left) + u8" " + std::to_string(forward)
+            + u8" " + std::to_string(up) + u8" " + std::to_string(yaw);
+        return ret;
+    }
+
     std::string TelloCommandBuilder::buildMoveCommand(int command_type,int data)
     {
         using namespace tello_driver::tello_commands;
@@ -79,6 +90,16 @@ namespace tello_driver
         {
             std::string ret;
             ret = u8"left "+ std::to_string(data);
+            return ret;
+        }
+    }
+    std::string TelloCommandBuilder::buildMoveCommand(int command_type,std::string data)
+    {
+        using namespace tello_driver::tello_commands;
+        if(command_type == move_commands::FLIP)
+        {
+            std::string ret;
+            ret = u8"flip "+ data;
             return ret;
         }
     }

@@ -3,6 +3,7 @@
 
 // Headers in ROS
 #include <ros/ros.h>
+#include <sensor_msgs/Joy.h>
 #include <std_msgs/Empty.h>
 #include <geometry_msgs/PointStamped.h>
 #include <dynamic_reconfigure/server.h>
@@ -36,7 +37,11 @@ namespace tello_driver
         UdpClient cmd_client_;
         UdpServer res_server_;
         ros::Subscriber takeoff_sub_;
+        ros::Subscriber land_sub_;
+        ros::Subscriber joy_sub_;
         void takeOffCallback(const std_msgs::Empty::ConstPtr msg);
+        void landCallback(const std_msgs::Empty::ConstPtr msg);
+        void joyCallback(const sensor_msgs::Joy::ConstPtr msg);
         ros::Subscriber target_position_sub_;
         void targetPositionCallback(const geometry_msgs::PointStamped::ConstPtr msg);
         dynamic_reconfigure::Server<tello_driver::TelloConfig> param_server_;
